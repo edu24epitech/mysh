@@ -4,12 +4,17 @@
 
 ## 🚀 Features
 
-- 🧠 **Inhibitors and Globbing**: Supports quotes (`'`, `"`) and wildcards (`*`, `?`, `[ ]`) for flexible command patterns.
-- 🧮 **Command Substitution**: Supports backtick expressions (`` `command` ``).
-- 🧩 **Parentheses & Grouping**: Run grouped commands using `()`.
-- 🌍 **Environment & Local Variables**: Includes support for shell variables and special variables like `$TERM`, `$cwd`, etc.
-- 📜 **History & Aliases**: Command history with `!`, and alias creation for custom shortcuts.
-- 🛠️ **Line Editing & Auto-Completion**: Dynamic keybindings and multi-line support.
+- Execute binary commands using environment PATH or direct paths
+- Built-in commands: `cd`, `env`, `setenv`, `unsetenv`, `exit`
+- Command separators using semicolons (`;`)
+- Pipe support (`|`) between multiple commands
+- Redirection support:
+  - Output redirection: `>`
+  - Input redirection: `<`
+  - Append redirection: `>>`
+  - Heredoc redirection: `<<`
+- Proper signal and error management
+- Returns the correct exit status from executed commands
 
 ## 🧱 Tech Stack
 
@@ -29,4 +34,27 @@
 
 ```bash
 make
+
+```
+```bash
 ./mysh
+```
+## 💡 Example Usage
+
+```bash
+> pwd
+/home/user/projects
+
+> cd ..
+> pwd
+/home/user
+
+> ls -l ; echo "Listing completed"
+total 8
+drwxr-xr-x 2 user user 4096 Jun 4 09:00 folder
+Listing completed
+
+> echo "This is a test" > test.txt
+# Creates a file with the line
+```
+
